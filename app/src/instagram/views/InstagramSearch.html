@@ -1,0 +1,19 @@
+<div ng-controller="InstagramSearchCtrl">
+
+  <section class="search-field">
+    <form ng-submit="submit(searchTerm)">
+      <input ng-model="searchTerm" type="text" placeholder="Enter a tag to search" required autofocus>
+      <input type="submit" value="Submit">
+    </form>
+  </section>
+  <div class="loading" ng-if="loading">
+    <p>Searching Instagram for photos tagged with <span>"{{searchTerm}}"</span></p>
+  </div>
+  <div ng-if="searchSuccess">
+    <div ng-repeat="item in data" class="results">
+      <a href="{{item.link}}"><img ng-src="{{item.images.standard_resolution.url}}"/></a>
+    </div>
+  </div>
+
+
+</div>
